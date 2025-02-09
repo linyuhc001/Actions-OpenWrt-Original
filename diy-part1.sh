@@ -14,8 +14,8 @@
 # sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 sed -i "/helloworld/d" "feeds.conf.default"
 # Add a feed source
-# echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
+echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+# echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall-packages' >>feeds.conf.default
 # echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 # echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
 
@@ -25,9 +25,9 @@ echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall-packages' >
 
 # 添加openclash
 cd ..
-git clone https://github.com/vernesong/OpenClash --depth=1
-mv ./OpenClash/luci-app-openclash ./openwrt/package/luci-app-openclash
-rm -rf OpenClash
+# git clone https://github.com/vernesong/OpenClash --depth=1
+# mv ./OpenClash/luci-app-openclash ./openwrt/package/luci-app-openclash
+# rm -rf OpenClash
 cd openwrt
 
 
@@ -51,10 +51,10 @@ git clone https://github.com/xiaorouji/openwrt-passwall2 package/openwrt-passwal
 # rm -rf feeds/packages/net/haproxy && svn co https://github.com/lienol/openwrt-packages/trunk/net/haproxy feeds/packages/net/haproxy
 
 # 自定义定制选项
-sed -i 's#192.168.1.1#192.168.3.105#g' package/base-files/files/bin/config_generate #定制默认IP
+# sed -i 's#192.168.1.1#192.168.3.105#g' package/base-files/files/bin/config_generate #定制默认IP
 sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz-default-settings #取消系统默认密码
 # sed -i 's#0 6#0 2#g' package/lean/luci-app-adbyby-plus/root/etc/init.d/adbyby #修改adbyby自动更新时间到凌晨2点
-sed -i 's#url-test#fallback#g' package/luci-app-openclash/root/usr/share/openclash/yml_proxys_set.sh #修改openclash自动生成配置中的urltest为fallback
+# sed -i 's#url-test#fallback#g' package/luci-app-openclash/root/usr/share/openclash/yml_proxys_set.sh #修改openclash自动生成配置中的urltest为fallback
 # sed -i 's#option commit_interval 24h#option commit_interval 10m#g' feeds/packages/net/nlbwmon/files/nlbwmon.config #修改流量统计写入为10分钟
 # sed -i 's#option database_directory /var/lib/nlbwmon#option database_directory /etc/config/nlbwmon_data#g' feeds/packages/net/nlbwmon/files/nlbwmon.config #修改流量统计数据存放默认位置
 # sed -i 's@background-color: #e5effd@background-color: #f8fbfe@g' package/luci-theme-edge/htdocs/luci-static/edge/cascade.css #luci-theme-edge主题颜色微调
@@ -136,11 +136,11 @@ EOF
 
 # 编译打印机支持
 cat >> .config <<EOF	
-CONFIG_PACKAGE_p910nd=y
-CONFIG_PACKAGE_kmod-lp=y
-CONFIG_PACKAGE_kmod-usb-printer=y
-CONFIG_PACKAGE_luci-app-p910nd=y
-CONFIG_PACKAGE_luci-i18n-p910nd-zh-cn=y
+# CONFIG_PACKAGE_p910nd=y
+# CONFIG_PACKAGE_kmod-lp=y
+# CONFIG_PACKAGE_kmod-usb-printer=y
+# CONFIG_PACKAGE_luci-app-p910nd=y
+# CONFIG_PACKAGE_luci-i18n-p910nd-zh-cn=y
 EOF
 
 # 多文件系统支持:
@@ -155,11 +155,11 @@ EOF
 
 # USB3.0支持:
 cat >> .config <<EOF
-CONFIG_PACKAGE_kmod-usb-ohci=y
-CONFIG_PACKAGE_kmod-usb-ohci-pci=y
-CONFIG_PACKAGE_kmod-usb2=y
-CONFIG_PACKAGE_kmod-usb2-pci=y
-CONFIG_PACKAGE_kmod-usb3=y
+# CONFIG_PACKAGE_kmod-usb-ohci=y
+# CONFIG_PACKAGE_kmod-usb-ohci-pci=y
+# CONFIG_PACKAGE_kmod-usb2=y
+# CONFIG_PACKAGE_kmod-usb2-pci=y
+# CONFIG_PACKAGE_kmod-usb3=y
 EOF
 
 # 第三方插件选择:
@@ -176,16 +176,16 @@ EOF
 # ShadowsocksR插件:
 cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-ssr-plus=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
 EOF
 
 # Passwall插件:
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-passwall=y
-CONFIG_PACKAGE_luci-app-passwall2=y #Passwall2
+# CONFIG_PACKAGE_luci-app-passwall=y
+# CONFIG_PACKAGE_luci-app-passwall2=y #Passwall2
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ipt2socks=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
@@ -224,29 +224,29 @@ EOF
 
 # 多拨
 cat >> .config <<EOF
-CONFIG_PACKAGE_luci-app-syncdial=y
-CONFIG_PACKAGE_luci-app-macvlan=y
-CONFIG_PACKAGE_luci-app-mwan3=y
+# CONFIG_PACKAGE_luci-app-syncdial=y
+# CONFIG_PACKAGE_luci-app-macvlan=y
+# CONFIG_PACKAGE_luci-app-mwan3=y
 EOF
 
 # 常用LuCI插件:
 cat >> .config <<EOF
 # CONFIG_PACKAGE_luci-app-adbyby-plus=y #adbyby去广告
 # CONFIG_PACKAGE_luci-app-webadmin is not set #Web管理页面设置
-CONFIG_DEFAULT_luci-app-vlmcsd=y #KMS激活服务器
-CONFIG_PACKAGE_luci-app-filetransfer=y #系统-文件传输
-CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
+# CONFIG_DEFAULT_luci-app-vlmcsd=y #KMS激活服务器
+# CONFIG_PACKAGE_luci-app-filetransfer=y #系统-文件传输
+# CONFIG_PACKAGE_luci-app-autoreboot=y #定时重启
 CONFIG_PACKAGE_luci-app-upnp=y #通用即插即用UPnP(端口自动转发)
 # CONFIG_PACKAGE_luci-app-accesscontrol is not set #上网时间控制
 # CONFIG_PACKAGE_luci-app-wol is not set #网络唤醒
-CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
-CONFIG_PACKAGE_luci-app-frps=y
-CONFIG_PACKAGE_luci-app-udpxy=y
+# CONFIG_PACKAGE_luci-app-frpc=y #Frp内网穿透
+# CONFIG_PACKAGE_luci-app-frps=y
+# CONFIG_PACKAGE_luci-app-udpxy=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y #宽带流量监控
 CONFIG_PACKAGE_luci-app-wrtbwmon=y #实时流量监测
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
-CONFIG_PACKAGE_kmod-usb-printer=y
+# CONFIG_PACKAGE_kmod-usb-printer=y
 # CONFIG_PACKAGE_luci-app-zerotier is not set #zerotier内网穿透
 # CONFIG_PACKAGE_luci-app-sfe is not set #高通开源的 Shortcut FE 转发加速引擎
 # CONFIG_PACKAGE_luci-app-flowoffload is not set #开源 Linux Flow Offload 驱动
@@ -268,11 +268,11 @@ CONFIG_PACKAGE_kmod-usb-printer=y
 # 
 # DDNS插件
 #
-CONFIG_PACKAGE_luci-app-ddns=y #DDNS服务
-CONFIG_PACKAGE_ddns-scripts=y
-CONFIG_PACKAGE_ddns-scripts_aliyun=y
-CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
-CONFIG_PACKAGE_ddns-scripts_dnspod=y
+# CONFIG_PACKAGE_luci-app-ddns=y #DDNS服务
+# CONFIG_PACKAGE_ddns-scripts=y
+# CONFIG_PACKAGE_ddns-scripts_aliyun=y
+# CONFIG_PACKAGE_ddns-scripts_cloudflare.com-v4=y
+# CONFIG_PACKAGE_ddns-scripts_dnspod=y
 #
 # VPN相关插件(禁用):
 #
@@ -281,6 +281,7 @@ CONFIG_PACKAGE_ddns-scripts_dnspod=y
 # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set #ipsec VPN服务
 # CONFIG_PACKAGE_luci-app-openvpn-server is not set #openvpn服务
 # CONFIG_PACKAGE_luci-app-softethervpn=y #SoftEtherVPN服务器
+CONFIG_PACKAGE_luci-proto-wireguard=y
 #
 # 文件共享相关(禁用):
 #
@@ -310,15 +311,18 @@ CONFIG_PACKAGE_nano=y
 # CONFIG_PACKAGE_vim-fuller=y
 CONFIG_PACKAGE_wget=y
 CONFIG_PACKAGE_bash=y
-CONFIG_PACKAGE_kmod-tun=y
-CONFIG_PACKAGE_libcap=y
-CONFIG_PACKAGE_libcap-bin=y
+# CONFIG_PACKAGE_kmod-tun=y
+# CONFIG_PACKAGE_libcap=y
+# CONFIG_PACKAGE_libcap-bin=y
 # CONFIG_PACKAGE_ip6tables-mod-nat=y
-CONFIG_PACKAGE_qemu-ga=y
-CONFIG_PACKAGE_iptables-mod-extra=y
+# CONFIG_PACKAGE_qemu-ga=y
+# CONFIG_PACKAGE_iptables-mod-extra=y
 CONFIG_PACKAGE_ttyd=y
-CONFIG_PACKAGE_e2fsprogs=y
-CONFIG_PACKAGE_cfdisk=y
+# CONFIG_PACKAGE_e2fsprogs=y
+# CONFIG_PACKAGE_cfdisk=y
+CONFIG_PACKAGE_https-dns-proxy=y
+CONFIG_PACKAGE_luci-app-https-dns-proxy=y
+CONFIG_PACKAGE_qrencode=y
 EOF
 
 # 其他软件包:
