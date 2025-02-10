@@ -200,7 +200,6 @@ cat >> .config <<EOF
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
-# CONFIG_PACKAGE_https-dns-proxy=y
 # CONFIG_PACKAGE_kcptun-client=y
 # CONFIG_PACKAGE_chinadns-ng=y
 # CONFIG_PACKAGE_haproxy=y
@@ -321,8 +320,8 @@ CONFIG_PACKAGE_bash=y
 CONFIG_PACKAGE_ttyd=y
 # CONFIG_PACKAGE_e2fsprogs=y
 # CONFIG_PACKAGE_cfdisk=y
-CONFIG_PACKAGE_https-dns-proxy=y
-CONFIG_PACKAGE_luci-app-https-dns-proxy=y
+# CONFIG_PACKAGE_https-dns-proxy=y
+# CONFIG_PACKAGE_luci-app-https-dns-proxy=y
 CONFIG_PACKAGE_qrencode=y
 EOF
 
